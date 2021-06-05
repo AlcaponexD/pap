@@ -12,4 +12,3 @@ jobs:
           ftp-server: ftp.achapromo.com.br
           ftp-username: ${{ secrets.FTP_USERNAME }}
           ftp-password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: /public_html
