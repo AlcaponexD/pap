@@ -15,7 +15,6 @@ myApp.controller('DashboardController', ['$scope','$http', function($scope,$http
         audio.play();
         console.log("é pra tocar som")
       }
-
         
         //Trata data
         for(var i in $scope.offers){
