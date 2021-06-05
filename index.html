@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="zrp">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script src="assets/js/angular.min.js"></script>
+  <script src="app.js"></script>
+  <style>
+    body{
+      background-color: #293042;
+      color: #e9ecef;
+    }
+    .header_list{
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .product_img{
+      width: 60px;
+      max-height: 60px;
+    }
+    .header_list_coupon{
+      font-size: 19px;
+      font-weight: bold;
+    }
+    .date{
+      font-size: 12px;
+    }
+    .hour{
+      font-size: 17px;
+      font-weight: 700;
+      color:tomato;
+    }
+  </style>
+  <title>Document</title>
+</head>
+<body>
+  <div class="container" ng-controller="DashboardController">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row border-bottom header_list">
+          <div class="col-md-2"></div>
+          <div class="col-md-6">Produto</div>
+          <div class="col-md-1">Preço</div>
+          <div class="col-md-2">Loja</div>
+          <div class="col-md-1">Hora </div>
+        </div>
+        <div class="row border-bottom pb-2" ng-repeat="offer in offers">
+          <div class="col-md-2 mt-3"><img class="product_img rounded-3" src="{{offer.image_url}}" alt=""></div>
+          <div class="col-md-6 mt-4">{{offer.product}}</div>
+          <div class="col-md-1 mt-4">R$ {{offer.price.toFixed(2) }}</div>
+          <div class="col-md-2 mt-4">{{ offer.store }}</div>
+          <div class="col-md-1 mt-4">
+            <span class="hour">
+              {{offer.hour}}
+            </span>
+            <span class="date">
+              {{offer.created_at}}
+            </span>
+          </div>
+        </div> 
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 mt-3">
+         <div class="col-md-12">
+          <h3>Sobre o projeto Achapromo</h3>
+          <p>
+            O projeto surgiu de uma necessidade. Quando surgia uma promoção TOP, simplesmente já havia acabado estoque ou desconto.
+            Pensando nisso decidi criar um serviço simples e funcional para exibir/tocar um  alerta para nós gamers
+            comprarmos nosso hardware salvando nosso rico dinheirinho.
+          </p>
+         </div>
+      </div>
+      <div class="col-md-4 mt-3" style="background-color: #273849;">
+        <!-- publicidade -->
+        <div class="col-md-12">
+          <div class="row  border-bottom header_list_coupon">
+            <div class="col-md-8">Lojas com mais ofertas</div>
+            <div class="col-md-4">Loja</div>
+          </div>
+          <div class="row border-bottom pb-2" ng-repeat="top in tops">
+            <div class="col-md-8 mt-4"><i class="fas fa-arrow-circle-right"></i> {{ top.total }}</div>
+            <div class="col-md-4 mt-4">{{ top.store }}</div>
+          </div> 
+        </div>
+      </div>
+      <div class="col-md-4 mt-3" style="background-color:#30456a;">
+        <!-- publicidade -->
+        <div class="col-md-12">
+          <div class="row  border-bottom header_list_coupon">
+            <div class="col-md-8">Lojas com menos ofertas</div>
+            <div class="col-md-4">Lojas</div>
+          </div>
+          <div class="row border-bottom pb-2" ng-repeat="lower in lowers">
+            <div class="col-md-8 mt-4"><i class="fas fa-arrow-circle-right"></i> {{ lower.total }}</div>
+            <div class="col-md-4 mt-4">{{ lower.store }}</div>
+          </div> 
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
