@@ -12,7 +12,7 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.0.0
       with:
-        ftp-server: ftp.achapromo.com.br:21/
+        ftp-server: sftp://achapromo.com.br:21/
         ftp-username: achapr12
-        ftp-password: ${{ secrets.ACHAPROMO_FTP_PASSWORD }}
+        ftp-password: ${{ secrets.STAGING_FTP_PASSWORD }}
         local-dir: ./public_html/
